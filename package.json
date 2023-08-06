@@ -1,7 +1,7 @@
 {
-  "name": "webpack-eslint-prettier",
+  "name": "image-slider-jj",
   "version": "1.0.0",
-  "description": "",
+  "description": "This creates an image slider!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "start": "webpack serve --open"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jimmy Jimenez <jimmyjimenez24000@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^6.7.3",
