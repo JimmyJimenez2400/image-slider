@@ -1,3 +1,80 @@
-.hello {
-  color: red;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  background-color: black;
+}
+
+#content {
+  height: 100%;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#imageCarouselContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  height: 80%;
+  width: 80%;
+}
+
+.pictureFrame {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+
+
+}
+
+.carouselImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+  display: none;
+}
+
+.arrowContainer {
+  position: absolute;
+  width: 100%;
+}
+
+#previousButton,
+#nextButton {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+
+}
+
+#previousButton {
+  left: 0;
+}
+
+#nextButton {
+  right: 0;
+}
+
+.active {
+  display: flex;
 }
