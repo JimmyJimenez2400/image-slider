@@ -1,37 +1,25 @@
+/* eslint-disable quotes */
 import "../fontawesome/fontawesome";
 import "../fontawesome/solid";
-
-import luffy from "../pictures/luffy_statue.jpg";
-import gundam from "../pictures/gundamn_statue.jpg";
-import liberty from "../pictures/liberty_statue.jpg";
 
 import { nextSlide, previousSlide } from "./imageCarouselListeners";
 
 export default function imageCarouselMaker(images) {
-  console.log(images);
   const imageCarouselContainer = document.createElement("div");
   imageCarouselContainer.id = "imageCarouselContainer";
 
   const pictureFrame = document.createElement("div");
   pictureFrame.classList.add("pictureFrame");
 
-  // We need to create dynamic slides, right now just hard code it
-  const luffyPicture = new Image();
-  luffyPicture.classList.add("carouselImage");
-  luffyPicture.classList.add("active");
-  luffyPicture.src = luffy;
+  for (let i = 0; i < images.length; i += 1) {
+    const newImage = new Image();
+    newImage.classList.add("carouselImage");
+    newImage.src = images[i];
 
-  const gundamPicture = new Image();
-  gundamPicture.classList.add("carouselImage");
-  gundamPicture.src = gundam;
+    pictureFrame.appendChild(newImage);
+  }
 
-  const libertyPicture = new Image();
-  libertyPicture.classList.add("carouselImage");
-  libertyPicture.src = liberty;
-
-  pictureFrame.appendChild(luffyPicture);
-  pictureFrame.appendChild(gundamPicture);
-  pictureFrame.appendChild(libertyPicture);
+  pictureFrame.firstChild.classList.add("active");
 
   // We need to create the arrows
   const arrowContainer = document.createElement("section");
