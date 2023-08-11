@@ -66,7 +66,7 @@ export default function imageCarouselMaker(images) {
   const circlesContainer = document.createElement("section");
   circlesContainer.classList.add("circlesContainer");
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < images.length; i += 1) {
     const circleSpan = document.createElement("span");
     circleSpan.classList.add("circleSpan");
     circleSpan.setAttribute(
