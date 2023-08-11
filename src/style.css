@@ -19,36 +19,10 @@ html {
   align-items: center;
 }
 
-#imageCarouselContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: relative;
-
-  height: 80%;
-  width: 80%;
+.active {
+  display: flex !important;
 }
 
-.pictureFrame {
-  height: 100%;
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-
-
-}
-
-.carouselImage {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-
-  display: none;
-}
 
 .arrowContainer {
   position: absolute;
@@ -73,8 +47,4 @@ html {
 
 #nextButton {
   right: 0;
-}
-
-.active {
-  display: flex;
 }
