@@ -1,9 +1,12 @@
 /* eslint-disable quotes */
-import { first } from "lodash";
 import "../fontawesome/fontawesome";
 import "../fontawesome/solid";
 
-import { nextSlide, previousSlide } from "./imageCarouselListeners";
+import {
+  nextSlide,
+  previousSlide,
+  takeToImage,
+} from "./imageCarouselListeners";
 
 export default function imageCarouselMaker(images) {
   const imageCarouselContainer = document.createElement("div");
@@ -18,7 +21,7 @@ export default function imageCarouselMaker(images) {
   pictureFrame.classList.add("pictureFrame");
   pictureFrame.setAttribute(
     "style",
-    "height: 100%; width: 100%; display: flex; flex-direction: row; align-items: center;"
+    "height: 80%; width: 80%; display: flex; flex-direction: row; align-items: center;"
   );
 
   for (let i = 0; i < images.length; i += 1) {
@@ -67,12 +70,28 @@ export default function imageCarouselMaker(images) {
   circlesContainer.classList.add("circlesContainer");
 
   for (let i = 0; i < images.length; i += 1) {
+    if (i === 0) {
+      const circleSpan = document.createElement("span");
+      circleSpan.classList.add("circleSpan");
+      circleSpan.classList.add("activeCircle");
+      circleSpan.setAttribute(
+        "style",
+        "cursor: pointer; height: 25px; width: 25px; margin: 0 2px; background-color: #0072BB; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease;"
+      );
+      circleSpan.setAttribute("id", i);
+      circleSpan.addEventListener("click", takeToImage);
+
+      circlesContainer.appendChild(circleSpan);
+      continue;
+    }
     const circleSpan = document.createElement("span");
     circleSpan.classList.add("circleSpan");
     circleSpan.setAttribute(
       "style",
-      "cursor: pointer; height: 15px; width: 15px; margin: 0 2px; background-color: white; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease;"
+      "cursor: pointer; height: 25px; width: 25px; margin: 0 2px; background-color: #0072BB; border-radius: 50%; display: inline-block; transition: background-color 0.6s ease;"
     );
+    circleSpan.setAttribute("id", i);
+    circleSpan.addEventListener("click", takeToImage);
 
     circlesContainer.appendChild(circleSpan);
   }
