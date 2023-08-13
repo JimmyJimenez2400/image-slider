@@ -19,8 +19,13 @@ html {
   align-items: center;
 }
 
+
 .active {
   display: flex !important;
+}
+
+.activeCircle {
+  background-color: #1E91D6 !important;
 }
 
 
@@ -47,4 +52,9 @@ html {
 
 #nextButton {
   right: 0;
+}
+
+.circlesContainer {
+  position: absolute;
+  bottom: 0;
 }
