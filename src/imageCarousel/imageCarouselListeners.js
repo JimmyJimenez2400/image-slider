@@ -1,5 +1,15 @@
 let currentSlide = 0;
 
+function showCurrentActiveSlide() {
+  const grabAllCircles = document.getElementsByClassName("circleSpan");
+
+  for (let i = 0; i < grabAllCircles.length; i += 1) {
+    grabAllCircles[i].classList.remove("activeCircle");
+  }
+
+  grabAllCircles[currentSlide].classList.add("activeCircle");
+}
+
 function nextSlide() {
   const grabAllImages = document.getElementsByClassName("carouselImage");
 
@@ -16,6 +26,7 @@ function nextSlide() {
   }
 
   grabAllImages[currentSlide].classList.add("active");
+  showCurrentActiveSlide();
 }
 
 function previousSlide() {
@@ -30,15 +41,29 @@ function previousSlide() {
     grabAllImages[i].classList.remove("active");
   }
   grabAllImages[currentSlide].classList.add("active");
+  showCurrentActiveSlide();
 }
 
-export { nextSlide, previousSlide };
+function takeToImage(e) {
+  currentSlide = Number(e.target.id);
 
-/* 
-Main Problem: How can we make the carousel work??
+  const grabAllImages = document.getElementsByClassName("carouselImage");
 
-3 Options:
-1. We could give each button their own event listener and function
-2. We could give each button the same event listener
-3. I don't know
-*/
+  const grabAllCircles = document.getElementsByClassName("circleSpan");
+
+  for (let i = 0; i < grabAllImages.length; i += 1) {
+    grabAllImages[i].classList.remove("active");
+  }
+  grabAllImages[currentSlide].classList.add("active");
+
+  for (let i = 0; i < grabAllCircles.length; i += 1) {
+    grabAllCircles[i].classList.remove("activeCircle");
+  }
+  grabAllCircles[currentSlide].classList.add("activeCircle");
+}
+
+setInterval(nextSlide, 5000);
+
+// We need to tell which slide is active depending on the circleSpans
+
+export { nextSlide, previousSlide, takeToImage };
