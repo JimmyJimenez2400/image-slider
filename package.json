@@ -1,5 +1,5 @@
 {
-  "name": "image-slider-jj",
+  "name": "image-carousel",
   "version": "1.0.0",
   "description": "This creates an image slider!",
   "main": "index.js",
@@ -8,7 +8,9 @@
     "build": "webpack",
     "start": "webpack serve --open"
   },
-  "keywords": [],
+  "keywords": [
+    "image carousel"
+  ],
   "author": "Jimmy Jimenez <jimmyjimenez24000@gmail.com>",
   "license": "ISC",
   "devDependencies": {
